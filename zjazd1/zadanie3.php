@@ -17,6 +17,15 @@
 		return $numbers;
 	}
 	
-	echo("<b>Ciag Fibonacciego:</b> " . implode(", ", fib(10)));
+	
+	$N = 10;
+	
+	echo("<b>Ciag Fibonacciego (nieparzyste elementy):</b><br> ");
+	
+	foreach(fib($N) as $index => $value) {
+		if($value % 2 == 0) continue;
+	
+		echo($index . " => " . $value . "<br>");
+	}
 
 ?>
