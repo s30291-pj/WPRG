@@ -8,19 +8,37 @@
 			Lorem Ipsum.";
 	
 	
-	$array = explode("", $text); 
-	$inter = explode("",".,!?");
+	$array = str_split($text); 
+	$inter = str_split(".,!?");
 	
-	for($i = 0; $i < count($array); $i++) {
-		$ch = $array[$i];
-		
-		if(in_array($ch, $array)) {
-			for($j = $i; $j < count($array) + 1; $j++) {
-				$array[$j] = $array[$j + 1];
-			}
-			
-			array_pop($array);
-		}
-	}
+	for ($i = 0; $i < count($array); $i++) {
+        if (in_array($array[$i], $inter)) {
+            echo $array[$i] . " at " . $i . "<br>";
+
+            array_splice($array, $i, 1);
+
+            $i--;
+        }
+    }
+
+	$array = array_values($array);
+    
+    $assoc = [];
+    $counter = 0;
+    $tempKey = null;
+    
+    foreach ($array as $element) {
+        if ($counter % 2 == 0) {
+            $tempKey = $element;
+        } else {
+            $assoc[$tempKey] = $element;
+        }
+        $counter++;
+    }
+    
+    echo "<br>Tablica asocjacyjna:<br>";
+    foreach ($assoc as $key => $value) {
+        echo $key . " => " . $value . "<br>";
+    }
 
 ?>

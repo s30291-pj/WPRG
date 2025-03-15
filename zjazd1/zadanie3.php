@@ -20,12 +20,12 @@
 	
 	$N = 10;
 	
-	echo("<b>Ciag Fibonacciego (nieparzyste elementy):</b><br> ");
+	echo("<b>Ciag Fibonacciego dla N = " . $N . " (tylko nieparzyste elementy):</b><br> ");
 	
 	foreach(fib($N) as $index => $value) {
 		if($value % 2 == 0) continue;
 	
-		echo($index . " => " . $value . "<br>");
+		echo($index . ". => " . $value . "<br>");
 	}
 
 ?>
